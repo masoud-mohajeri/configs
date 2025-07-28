@@ -1,2 +1,2 @@
 [alias]
-  last = "!f() { for i in $(seq 1 $1); do git name-rev --name-only --exclude=refs/tags/* @{-$i}; done; }; f"
+	last = !git reflog | grep checkout | sed -n \"s/.* to //p\" | uniq | head -n 10
